@@ -2,7 +2,7 @@
 
 clone() {
 	echo "[+] Cloning $@ into $@ .."
-	git clone --depth=1 --single-branch https://github.com/rsuntk/toolchains.git -b $@ $@
+	git clone --depth=1 --single-branch https://github.com/rsuntk/toolchains.git -b $@ $@ &> /dev/null
 	echo "[+] Clone done."
 }
 

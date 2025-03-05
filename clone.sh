@@ -1,9 +1,9 @@
 #! /usr/bin/env bash
 
 clone() {
-	echo "[+] Cloning $@ into $@ .."
+	echo "INFO: Fetching branch ($@) into $@ folder ..."
 	git clone --depth=1 --single-branch https://github.com/rsuntk/toolchains.git -b $@ $@
-	[ -d $(pwd)/$@ ] && echo "[+] Clone done." || "[-] Clone failed!" && exit
+	[ -d $(pwd)/$@ ] && echo "INFO: Successfully fetched $@." || echo "FAILED: Fetch failed, cleaning up." && exit
 }
 
-[ ! -z $@ ] && clone $@ || echo "[-] `basename $0` need argument!" && exit
+[ ! -z $@ ] && clone $@ || echo "FAILED: No branch was spesified" && exit
